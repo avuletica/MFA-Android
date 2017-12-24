@@ -1,5 +1,6 @@
 package hr.fesb.mfa_android.activites;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -45,10 +46,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void openHomeActivity() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
     Callback<Void> loginCallback = new Callback<Void>() {
         @Override
         public void onResponse(Call call, Response response) {
             System.out.println(response.headers());
+            openHomeActivity();
         }
 
         @Override
