@@ -1,8 +1,13 @@
 package hr.fesb.mfa_android.services;
 
-/**
- * Created by ante on 12/24/17.
- */
+import hr.fesb.mfa_android.models.UserModel;
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.POST;
 
 public interface RequestInterface {
+
+    @POST("login")
+    Call<Void> login(@Body UserModel userModel);
+
 }
